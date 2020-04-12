@@ -45,7 +45,7 @@ def process_sniffed_packet(packet):
             # Retrieve the real MAC address of the IP:
             real_mac = get_mac(packet[scapy.ARP].psrc)
             # Retrieve the MAC in the response:
-            response_mac = get_mac(packet[scapy.ARP].hwsrc)
+            response_mac = packet[scapy.ARP].hwsrc
 
             # Check if the real MAC address is the different from the MAC address retrieved from the response:
             if real_mac != response_mac:
